@@ -1,7 +1,7 @@
 [
   {
     "name": "DIY-M-KIT 200W",
-    "led": "4x CXB3590",
+    "led": "4x Cree CXB3590",
     "driver": "HLG-185H-C1400A",
     "wattage": 200,
     "dimensions": {
@@ -35,7 +35,7 @@
   },
   {
     "name": "DIY-M-KIT 400W",
-    "led": "8x CXB3590",
+    "led": "8x Cree CXB3590",
     "driver": "2x HLG-185H-C1400A",
     "wattage": 400,
     "dimensions": {
