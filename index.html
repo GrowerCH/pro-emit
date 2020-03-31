@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pro-Emit LED Finder</title>
+
+    <!--
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          crossorigin="anonymous">
+    -->
+    <link crossorigin="anonymous" href="https://bootswatch.com/4/minty/bootstrap.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+
+    <style>
+
+        input {
+            text-align: center;
+        }
+
+        select {
+            text-align-last: center;
+        }
+
+        a, i, p {
+            color: green;
+        }
+
+    </style>
+
+</head>
+
+<body hidden>
+
+<div class="jumbotron pt-1 text-dark">
+    <h1 class="display-4">Pro-Emit LED Finder</h1>
+    <p class="lead">This is some example text</p>
+    <hr class="my-4">
+
+    <div class="card-group row">
+
+        <!-- Fläche ------------------------------------------------------------------>
+        <div class="card col">
+            <h5 class="card-header">Zu beleuchtende Fläche?
+                <button class="btn btn-sm float-right" data-content="This is some example description" data-toggle="popover" data-trigger="focus"
+                        title="Fläche"
+                        type="button">
+                    <i class="fas fa-info-circle fa-lg"></i>
+                </button>
+            </h5>
+
+            <div class="card-body">
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Länge</div>
+                    </div>
+                    <input class="form-control" id="INPUT_AREA_LENGTH" max="10" min="0.1" step="0.1" type="number"
+                           value="1">
+                    <div class="input-group-append">
+                        <div class="input-group-text">m</div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Breite</div>
+                    </div>
+                    <input class="form-control" id="INPUT_AREA_WIDTH" max="10" min="0.1" step="0.1" type="number"
+                           value="1">
+                    <div class="input-group-append">
+                        <div class="input-group-text">m</div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Fläche</div>
+                    </div>
+                    <input class="form-control" disabled id="OUTPUT_AREA" type="number" value="1.00">
+                    <div class="input-group-append">
+                        <div class="input-group-text">m²</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Licht ------------------------------------------------------------------>
+        <div class="card col">
+            <h5 class="card-header">Wieviel Licht? Wie effizient?
+                <button class="btn btn-sm float-right" data-content="This is some example description" data-toggle="popover" data-trigger="focus"
+                        title="Licht"
+                        type="button">
+                    <i class="fas fa-info-circle fa-lg"></i>
+                </button>
+            </h5>
+
+            <div class="card-body">
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">PPFD</div>
+                    </div>
+                    <input class="form-control" disabled id="OUTPUT_PPFD" type="number" value="800">
+                    <div class="input-group-append">
+                        <div class="input-group-text">µmol/(m²s)</div>
+                    </div>
+                </div>
+                <input class="custom-range" id="INPUT_PPFD" max="1600" min="100" step="50" type="range" value="800">
+
+                <br><br>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Min. Effizienz</div>
+                    </div>
+                    <input class="form-control" disabled id="OUTPUT_EFFICIENCY" type="number">
+                    <div class="input-group-append">
+                        <div class="input-group-text">µmol/J</div>
+                    </div>
+                </div>
+                <input class="custom-range" id="INPUT_EFFICIENCY" step="0.1" type="range">
+
+            </div>
+        </div>
+
+        <!-- Farbtemperatur ------------------------------------------------------------------>
+        <div class="card col">
+            <h5 class="card-header">Welche Farbtemperatur?
+                <button class="btn btn-sm float-right" data-content="This is some example description" data-toggle="popover" data-trigger="focus"
+                        title="Farbtemperatur"
+                        type="button">
+                    <i class="fas fa-info-circle fa-lg"></i>
+                </button>
+            </h5>
+
+            <div class="card-body">
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">CCT</div>
+                    </div>
+                    <select class="form-control" id="SELECT_CCT"></select>
+                    <div class="input-group-append">
+                        <div class="input-group-text">K</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Growtage ------------------------------------------------------------------>
+        <div class="card col">
+            <h5 class="card-header">Wieviele Growtage?
+                <button class="btn btn-sm float-right" data-content="This is some example description" data-toggle="popover" data-trigger="focus"
+                        title="Growtage"
+                        type="button">
+                    <i class="fas fa-info-circle fa-lg"></i>
+                </button>
+            </h5>
+
+            <div class="card-body">
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Vegetation</div>
+                    </div>
+                    <input class="form-control" id="INPUT_VEGETATION_DAYS" type="number" value="35">
+                    <div class="input-group-append">
+                        <div class="input-group-text">Tage</div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Blüte</div>
+                    </div>
+                    <input class="form-control" id="INPUT_FLOWERING_DAYS" type="number" value="63">
+                    <div class="input-group-append">
+                        <div class="input-group-text">Tage</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <table class="table table-striped text-dark" id="TABLE_SPECS"></table>
+
+</div>
+
+<script crossorigin="anonymous" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<script src="js/data_handler.js" type="text/javascript"></script>
+<script src="js/element_handler.js" type="text/javascript"></script>
+<script src="js/specs.js" type="text/javascript"></script>
+<script src="js/specs_calculator.js" type="text/javascript"></script>
+<script src="js/table_handler.js" type="text/javascript"></script>
+
+<script>
+
+    loadProducts()
+        .then(() => {
+
+            createTable(TABLE_SPECS);
+
+            initElements();
+
+            let efficiencyRange = getEfficiencyRange(PRODUCT_LIST);
+            setEfficiencyInputRange(efficiencyRange.min, efficiencyRange.max);
+
+            let cctValues = getCCTValues(PRODUCT_LIST);
+            setCCTSelectOptions(cctValues, 3500);
+
+            generateTable();
+
+            document.body.hidden = false;
+
+        });
+
+</script>
+
+</body>
+
+<hr>
+<footer class="footer text-center py-3">© 2020 Example footer:
+    <a href="https://pro-emit.de">pro-emit.de</a>
+</footer>
+
+</html>

@@ -1,0 +1,70 @@
+[
+  {
+    "name": "DIY-M-KIT 200W",
+    "led": "4x CXB3590",
+    "driver": "HLG-185H-C1400A",
+    "wattage": 200,
+    "dimensions": {
+      "length": 450.0,
+      "width": 450.0
+    },
+    "price": 429.00,
+    "url": "https://www.pro-emit.de/shop/diverse/2/diy-m-kit-200w.html",
+    "versions": [
+      {
+        "cct": 2700,
+        "ppf": 482,
+        "lumen": 0
+      },
+      {
+        "cct": 3000,
+        "ppf": 482,
+        "lumen": 0
+      },
+      {
+        "cct": 3500,
+        "ppf": 482,
+        "lumen": 0
+      },
+      {
+        "cct": 6500,
+        "ppf": 482,
+        "lumen": 0
+      }
+    ]
+  },
+  {
+    "name": "DIY-M-KIT 400W",
+    "led": "8x CXB3590",
+    "driver": "2x HLG-185H-C1400A",
+    "wattage": 400,
+    "dimensions": {
+      "length": 900.0,
+      "width": 640.0
+    },
+    "price": 879.00,
+    "url": "https://www.pro-emit.de/shop/diverse/125/diy-m-kit-400w.html",
+    "versions": [
+      {
+        "cct": 2700,
+        "ppf": 811,
+        "lumen": 0
+      },
+      {
+        "cct": 3000,
+        "ppf": 811,
+        "lumen": 0
+      },
+      {
+        "cct": 3500,
+        "ppf": 811,
+        "lumen": 0
+      },
+      {
+        "cct": 6500,
+        "ppf": 811,
+        "lumen": 0
+      }
+    ]
+  }
+]
