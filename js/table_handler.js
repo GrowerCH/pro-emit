@@ -51,14 +51,13 @@ function createHeaderRow(body, product, columnCount) {
     let row = body.insertRow();
     let cell = row.insertCell();
 
-    cell.className = "text-center";
     cell.colSpan = columnCount;
 
     let divider = document.createElement("P");
     divider.innerText = " ";
 
     let urlText = document.createElement("A");
-    urlText.innerText = product["name"];
+    urlText.innerHTML = product["name"].bold();
     urlText.href += product["url"];
     urlText.target = "_blank";
 
